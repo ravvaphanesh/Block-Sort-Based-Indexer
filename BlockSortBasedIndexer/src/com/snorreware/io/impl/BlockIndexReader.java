@@ -33,6 +33,8 @@ public class BlockIndexReader implements BlockIndexReaderIntf {
 
 	@Override
 	public void run() {
+		
+		int timeoutInMilliSeconds = 500;
 		System.out.println("Indexer starts to read...");
 		try {
 			String line;
@@ -40,7 +42,7 @@ public class BlockIndexReader implements BlockIndexReaderIntf {
 				TermPostingsList termPostingsList = generateTermPostingsList(line);
 				// Attempt to insert term and postings list into the merge list. 
 				// Wait a second before timing out. We wouldn't want that to happen.
-				int timeoutInMilliSeconds = 500;
+				
 				boolean termPostingsListInserted = false;
 				while(!termPostingsListInserted) {
 
@@ -52,7 +54,7 @@ public class BlockIndexReader implements BlockIndexReaderIntf {
 					catch (InterruptedException e) {
 						// The queue likely timed out from having to wait for so long....
 						e.printStackTrace();
-						System.err.println("Queue timed out (waited " + timeoutInMilliSeconds + " milliseconds), stack full for too long!");
+						System.err.println("Queue.offer timed out (waited " + timeoutInMilliSeconds + " milliseconds), queue full for too long!");
 						System.err.println("Try again....");
 					}
 				}
