@@ -10,6 +10,7 @@ public interface TermPostingsListIntf extends Comparable<TermPostingsList> {
 	public void setTermId(int termId);
 	public Collection<Integer> getPostingsList();
 	public void setPostingsList(Collection<Integer> postingsList);
+	public void insertPosting(int posting);
 	
 
 }

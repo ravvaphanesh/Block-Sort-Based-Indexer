@@ -8,17 +8,21 @@ import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import org.snorreware.BSBI;
+
 import com.snorreware.io.BlockReaderIntf;
 
 public class TextFilesBlockReader implements BlockReaderIntf {
 
+	BSBI bsbi;
 	BufferedReader reader;
 	File[] textFiles;
 	BlockingQueue<String[]> normalizeQueue;
 
-	public TextFilesBlockReader(File blockDirectory, BlockingQueue<String[]> normalizeQueue) {
-		initFiles(blockDirectory);
+	public TextFilesBlockReader(BSBI bsbi, File[] blockFiles, BlockingQueue<String[]> normalizeQueue) {
+		this.bsbi = bsbi;
 		this.normalizeQueue = normalizeQueue;
+		this.textFiles = blockFiles;
 	}
 
 	@Override
@@ -29,7 +33,6 @@ public class TextFilesBlockReader implements BlockReaderIntf {
 		for(File textFile : textFiles) {
 			try {
 				reader = new BufferedReader(new FileReader(textFile));
-
 
 				String text = "";
 				String line;
@@ -53,9 +56,10 @@ public class TextFilesBlockReader implements BlockReaderIntf {
 						System.err.println("Try again....");
 					}
 				}
-
-				System.out.println("Finished reading the block. Close reader...");
+				
 				reader.close();
+				bsbi.setTextFileReaderFinished();
+				
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,25 +68,6 @@ public class TextFilesBlockReader implements BlockReaderIntf {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	private void initFiles(File blockDirectory) {
-
-		if(!blockDirectory.isDirectory()) {
-			if(blockDirectory.isFile()) {
-				blockDirectory.delete();
-				blockDirectory.mkdir();
-			} else if(!blockDirectory.exists()) {
-				blockDirectory.mkdir();
-			}
-		}
-
-		for(File file : blockDirectory.listFiles()) {
-			if(!file.getName().endsWith(".txt")) {
-				file.delete();
-			}
-		}
-
-		textFiles = blockDirectory.listFiles();
+		
 	}
 }

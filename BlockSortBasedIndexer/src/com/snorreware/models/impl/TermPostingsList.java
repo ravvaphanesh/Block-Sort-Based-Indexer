@@ -2,22 +2,25 @@ package com.snorreware.models.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 import org.snorreware.models.TermPostingsListIntf;
 
 public class TermPostingsList implements TermPostingsListIntf {
 	
 	private int termId;
-	private ArrayList<Integer> postingsList;
+	private TreeSet<Integer> postingsList;
 	
 	/**
 	 * 
 	 * @param termPostingsList the object array storing the term postings list values
 	 */
-	public TermPostingsList(int termId, ArrayList<Integer> postingsList) {
+	public TermPostingsList(int termId, Collection<Integer> postingsListCollection) {
 		
 			this.termId = termId;
-			this.postingsList = postingsList;
+			this.postingsList = new TreeSet<Integer>();
+			this.postingsList.addAll(postingsListCollection);
 	}
 
 	/**
@@ -58,6 +61,14 @@ public class TermPostingsList implements TermPostingsListIntf {
 		
 		this.postingsList.addAll(postingsList);
 	}
+
+	@Override
+	public void insertPosting(int posting) {
+		
+		postingsList.add(posting);
+	}
+	
+	
 
 
 	

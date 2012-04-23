@@ -1,5 +1,7 @@
 package com.snorreware.io;
 
-public interface TermListWriterIntf extends Runnable {
+public interface TermListWriterIntf {
+	
+	public void write();
 
 }
