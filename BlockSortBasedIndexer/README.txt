@@ -1,6 +1,9 @@
 Block Sort Based Indexer README Manual
 --------------------------------------
 
+NOTE: The implementation in the TextFileTermListWriter class is currently NOT implemented.
+Implementation will be done when time permits.
+
 To use this software (in it's current state) you need to do the following:
 1. Run the project under Java 1.6 or later (some code used does not work in < 1.6)
 2. Create a folder "documents" and "index" in the project-folder (program checks for these folders)
@@ -16,5 +19,5 @@ continued quite irregularly.
 
 TODO
 
-1. Write term and document list to index folder
-2. Ponder the meaning of life, the universe and everything
+1. Implement a MySQL-based index reader/writer to increase performance.
+2. Add more documentation to make code more easy to read.
