@@ -1,4 +1,4 @@
-package com.snorreware.io.impl;
+package no.uib.bsbi.io.impl;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.snorreware.BSBI;
+import no.uib.bsbi.BSBI;
+import no.uib.bsbi.io.BlockReaderIntf;
 
-import com.snorreware.io.BlockReaderIntf;
 
 public class TextFilesBlockReader implements BlockReaderIntf {
 

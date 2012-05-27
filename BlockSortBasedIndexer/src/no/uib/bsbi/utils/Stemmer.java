@@ -32,7 +32,7 @@
 
 */
 
-package com.snorreware.utils;
+package no.uib.bsbi.utils;
 
 import java.io.*;
 

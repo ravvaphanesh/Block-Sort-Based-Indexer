@@ -1,8 +1,9 @@
-package org.snorreware.models;
+package no.uib.bsbi.models;
+
 
 import java.util.Collection;
 
-import com.snorreware.models.impl.TermPostingsList;
+import no.uib.bsbi.models.impl.TermPostingsList;
 
 public interface TermPostingsListIntf extends Comparable<TermPostingsList> {
 	

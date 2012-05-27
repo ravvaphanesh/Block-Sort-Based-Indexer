@@ -1,4 +1,4 @@
-package com.snorreware.io.impl;
+package no.uib.bsbi.io.impl;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.snorreware.BSBI;
+import no.uib.bsbi.BSBI;
+import no.uib.bsbi.io.BlockIndexReaderIntf;
+import no.uib.bsbi.models.impl.TermPostingsList;
 
-import com.snorreware.io.BlockIndexReaderIntf;
-import com.snorreware.models.impl.TermPostingsList;
 
 
 public class BlockIndexReader implements BlockIndexReaderIntf {

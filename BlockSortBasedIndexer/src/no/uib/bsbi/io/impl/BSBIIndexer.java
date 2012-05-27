@@ -1,4 +1,4 @@
-package com.snorreware.io.impl;
+package no.uib.bsbi.io.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,10 +8,11 @@ import java.util.PriorityQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.snorreware.BSBI;
+import no.uib.bsbi.BSBI;
+import no.uib.bsbi.io.IndexerIntf;
+import no.uib.bsbi.io.TermListWriterIntf;
+import no.uib.bsbi.models.impl.TermPostingsList;
 
-import com.snorreware.io.IndexerIntf;
-import com.snorreware.models.impl.TermPostingsList;
 
 public class BSBIIndexer implements IndexerIntf {
 
@@ -102,16 +103,10 @@ public class BSBIIndexer implements IndexerIntf {
 			}
 		}
 
-		try {
-			System.out.println("Indexer says term postings lists size is: " + termPostingsLists.size());
-			TextFileTermListWriter writer = new TextFileTermListWriter(termPostingsLists, blockNumber);
-			writer.write();
-			finished = true;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.err.println("Could not write block" + blockNumber);
-		}
+		System.out.println("Indexer says term postings lists size is: " + termPostingsLists.size());
+		TermListWriterIntf writer = new TextFileTermListWriter(termPostingsLists, blockNumber);
+		writer.write();
+		finished = true;
 	}
 
 	public boolean finished() {

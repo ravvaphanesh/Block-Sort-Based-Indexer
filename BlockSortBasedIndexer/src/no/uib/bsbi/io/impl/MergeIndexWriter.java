@@ -1,4 +1,4 @@
-package com.snorreware.io.impl;
+package no.uib.bsbi.io.impl;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,10 +11,10 @@ import java.util.PriorityQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.snorreware.BSBI;
+import no.uib.bsbi.BSBI;
+import no.uib.bsbi.io.MergeIndexWriterIntf;
+import no.uib.bsbi.models.impl.TermPostingsList;
 
-import com.snorreware.io.MergeIndexWriterIntf;
-import com.snorreware.models.impl.TermPostingsList;
 
 public class MergeIndexWriter implements MergeIndexWriterIntf {
 

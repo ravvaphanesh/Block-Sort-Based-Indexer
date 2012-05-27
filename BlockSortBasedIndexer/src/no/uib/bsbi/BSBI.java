@@ -1,4 +1,4 @@
-package org.snorreware;
+package no.uib.bsbi;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,12 +9,13 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
-import com.snorreware.io.impl.BSBIIndexer;
-import com.snorreware.io.impl.BSBINormalizer;
-import com.snorreware.io.impl.BlockIndexReader;
-import com.snorreware.io.impl.MergeIndexWriter;
-import com.snorreware.io.impl.TextFilesBlockReader;
-import com.snorreware.models.impl.TermPostingsList;
+import no.uib.bsbi.io.impl.BSBIIndexer;
+import no.uib.bsbi.io.impl.BSBINormalizer;
+import no.uib.bsbi.io.impl.BlockIndexReader;
+import no.uib.bsbi.io.impl.MergeIndexWriter;
+import no.uib.bsbi.io.impl.TextFilesBlockReader;
+import no.uib.bsbi.models.impl.TermPostingsList;
+
 
 public class BSBI {
 	

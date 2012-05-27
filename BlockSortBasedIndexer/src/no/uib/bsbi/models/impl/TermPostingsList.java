@@ -1,11 +1,11 @@
-package com.snorreware.models.impl;
+package no.uib.bsbi.models.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-import org.snorreware.models.TermPostingsListIntf;
+import no.uib.bsbi.models.TermPostingsListIntf;
 
 public class TermPostingsList implements TermPostingsListIntf {
 	

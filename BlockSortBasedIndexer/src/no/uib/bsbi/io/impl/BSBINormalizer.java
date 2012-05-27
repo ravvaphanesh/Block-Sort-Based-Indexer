@@ -1,4 +1,4 @@
-package com.snorreware.io.impl;
+package no.uib.bsbi.io.impl;
 
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
@@ -6,11 +6,11 @@ import java.util.StringTokenizer;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import org.snorreware.BSBI;
+import no.uib.bsbi.BSBI;
+import no.uib.bsbi.io.NormalizerIntf;
+import no.uib.bsbi.utils.Stemmer;
 
-import com.snorreware.utils.Stemmer;
 
-import com.snorreware.io.NormalizerIntf;
 
 public class BSBINormalizer implements NormalizerIntf {
 
